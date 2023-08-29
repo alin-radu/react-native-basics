@@ -6,7 +6,7 @@
 
 - title: React Native - The Practical Guide
 - author: Maximilian Schwarzmüller
-- link: https://www.udemy.com/course/react-native-the-practical-guide/
+- link: https://www.udemy.com/course/react-native-the-practical-guide/learn/lecture/31197350#content
 
 ### II. GITHUB
 
