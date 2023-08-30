@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Alert, StyleSheet, TextInput, View } from 'react-native';
-import { PrimaryButton } from '../components/PrimaryButton';
+import { PrimaryButton } from '../components/UI/PrimaryButton';
+import { colors } from '../constants/colors';
 
 const showIsInvalidNumberAlert = (onConfirmCallback) => {
   return Alert.alert(
@@ -16,7 +17,9 @@ const showIsInvalidNumberAlert = (onConfirmCallback) => {
   );
 };
 
-export const StartGameScreen = () => {
+export const StartGameScreen = (props) => {
+  const { onConfirmNumber } = props;
+
   const [enteredNumber, setEnteredNumber] = useState('');
 
   const numberInputHandler = (enteredText) => {
@@ -37,7 +40,7 @@ export const StartGameScreen = () => {
       return;
     }
 
-    console.log('Valid Number');
+    onConfirmNumber(enteredNumber);
   };
 
   return (
@@ -69,7 +72,7 @@ const styles = StyleSheet.create({
   mainOuterContainer: {
     marginTop: 100,
     marginHorizontal: 24,
-    backgroundColor: '#4e0329',
+    backgroundColor: colors.primary800,
     borderRadius: 8,
     elevation: 20,
     shadowColor: '#000',
@@ -93,8 +96,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#ddb52f',
-    borderBottomColor: '#ddb52f',
+    color: colors.accent500,
+    borderBottomColor: colors.accent500,
     borderBottomWidth: 2,
   },
   buttonsContainer: {
