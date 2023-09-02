@@ -1,21 +1,12 @@
 import { useState } from 'react';
-import { Alert, StyleSheet, TextInput, View } from 'react-native';
-import { PrimaryButton } from '../components/UI/PrimaryButton';
-import { colors } from '../constants/colors';
+import { StyleSheet, TextInput, View } from 'react-native';
 
-const showIsInvalidNumberAlert = (onConfirmCallback) => {
-  return Alert.alert(
-    'Invalid number!',
-    'The entered value has to be a number between 1 and 99.',
-    [
-      {
-        text: 'Okay',
-        style: 'destructive',
-        onPress: onConfirmCallback,
-      },
-    ]
-  );
-};
+import { BasicCard } from '../components/UI/BasicCard';
+import { BasicTitle } from '../components/UI/BasicTitle';
+import { PrimaryButton } from '../components/UI/PrimaryButton';
+
+import { colors } from '../constants/colors';
+import { showIsInvalidNumberAlert } from '../alerts/alerts';
 
 export const StartGameScreen = (props) => {
   const { onConfirmNumber } = props;
@@ -40,12 +31,13 @@ export const StartGameScreen = (props) => {
       return;
     }
 
-    onConfirmNumber(enteredNumber);
+    onConfirmNumber(selectedNumber);
   };
 
   return (
-    <View style={styles.mainOuterContainer}>
-      <View style={styles.mainInnerContainer}>
+    <View style={styles.mainContainer}>
+      <BasicTitle>Guess My Number</BasicTitle>
+      <BasicCard summary="Enter a Number">
         <TextInput
           style={styles.input}
           maxLength={2}
@@ -63,31 +55,16 @@ export const StartGameScreen = (props) => {
             <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
           </View>
         </View>
-      </View>
+      </BasicCard>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  mainOuterContainer: {
+  mainContainer: {
+    flex: 1,
     marginTop: 100,
-    marginHorizontal: 24,
-    backgroundColor: colors.primary800,
-    borderRadius: 8,
-    elevation: 20,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowRadius: 6,
-    shadowOpacity: 0.25,
-  },
-  mainInnerContainer: {
-    justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
-    borderRadius: 8,
   },
   input: {
     width: 75,

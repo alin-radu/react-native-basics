@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
     borderColor: colors.primary600,
   },
   text: {
+    fontFamily: 'open-sans-bold',
     color: colors.primary600,
     fontSize: 36,
-    fontWeight: 'bold',
   },
 });

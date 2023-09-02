@@ -1,5 +1,4 @@
 import { StyleSheet, Text } from 'react-native';
-import { colors } from '../../constants/colors';
 
 export const BasicTitle = (props) => {
   const { children, customStyle = {} } = props;
@@ -9,8 +8,8 @@ export const BasicTitle = (props) => {
 
 const styles = StyleSheet.create({
   title: {
+    fontFamily: 'open-sans-bold',
     fontSize: 24,
-    fontWeight: 'bold',
     color: 'white',
     textAlign: 'center',
     borderWidth: 2,
